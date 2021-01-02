@@ -1,0 +1,44 @@
+<%- include("partials/header") %>
+
+<div class="ui secondary inverted red segment container center aligned">
+    <strong>Insert Your Fucking Thought .....</strong>
+</div>
+
+<div class="ui container segment">
+    <div class="ui attached segment">
+        <div class="ui divided items">
+
+            <% ejsBlog.forEach(function(x){ %>
+
+            <div class="item">
+
+                <div class="image">
+                    <img src=" <%= x.image %> " class="ui centered rounded image"></img>
+                </div>
+
+                <div class="content">
+
+                    <a class="header" href="/blogs/<%= x._id %>"><%= x.title %></a>
+
+                    <div class="meta">
+                        <p> <%= x.created.toDateString() %> </p>
+                    </div>
+
+                    <div class="description">
+                        <p><%= x.body.substring(0,100) %> ||</p>
+                    </div>
+
+                    <div class="extra">
+                        <a class="ui pink button" href="/blogs/<%= x._id %>"><strong>Read More</strong></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <% }) %>
+        </div>
+        </div>
+</div>
+
+
+<%- include("partials/footer") %>
